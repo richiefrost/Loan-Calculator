@@ -1,0 +1,113 @@
+<html>
+<head>
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+
+<!-- jQuery CDN -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script src="amortization.js"></script>
+<script src="controller.js"></script>
+<style>
+body {
+  margin: 30px;
+}
+div.controls button {
+  width: 200px;
+  margin-bottom: 10px;
+}
+div.last-question {
+  margin-bottom: 50px;
+}
+</style>
+</head>
+<body>
+    <div id="formDiv">
+        <form id="loanForm" class="form-horizontal" onsubmit="controller()">
+        <fieldset>
+
+        <!-- Form Name -->
+        <legend>Loan Calculator</legend>
+
+        <!-- Appended Input-->
+        <div class="control-group">
+          <label class="control-label" for="annualRate">Annual Rate (%)</label>
+          <div class="controls">
+            <div class="input-append">
+              <input id="annualRate" name="annualRate" class="input-mini" placeholder="5" type="text" required="">
+              <span class="add-on">%</span>
+            </div>
+            <p class="help-block">The interest rate on your loan, in percent</p>
+          </div>
+        </div>
+
+        <!-- Prepended text-->
+        <div class="control-group">
+          <label class="control-label" for="loanAmount">Loan Amount</label>
+          <div class="controls">
+            <div class="input-prepend">
+              <span class="add-on">$</span>
+              <input id="loanAmount" name="loanAmount" class="input-mini" placeholder="150000" type="text" required="">
+            </div>
+            <p class="help-block">How much your loan is for</p>
+          </div>
+        </div>
+
+        <!-- Appended Input-->
+        <div class="control-group">
+          <label class="control-label" for="loanTerm">Loan Term</label>
+          <div class="controls">
+            <div class="input-append">
+              <input id="loanTerm" name="loanTerm" class="input-mini" placeholder="30" type="text" required="">
+              <span class="add-on">Years</span>
+            </div>
+            <p class="help-block">How long your loan is for (in years)</p>
+          </div>
+        </div>
+            
+        <!-- Appended Input-->
+        <div class="control-group last-question">
+          <label class="control-label" for="extraPayment">Extra Payment</label>
+          <div class="controls">
+            <div class="input-append">
+              <input id="extraPayment" name="extraPayment" class="input-mini" placeholder="50" type="text">
+              <span class="add-on">Dollars</span>
+            </div>
+            <p class="help-block">How much more you'd pay per month</p>
+          </div>
+        </div>
+
+        <!-- Button -->
+        <div class="control-group">
+          <div class="controls">
+            <button id="seePayment" name="seePayment" class="btn btn-primary">See Payment</button>
+          </div>
+        </div>
+            
+        <!-- Button -->
+        <div class="control-group">
+          <div class="controls">
+            <button id="seeBreakdown" name="seeBreakdown" class="btn btn-primary">See Breakdown</button>
+          </div>
+        </div>
+            
+        <!-- Button -->
+        <div class="control-group">
+          <div class="controls">
+            <button id="clear" name="clear" class="btn btn-primary">Start Over</button>
+          </div>
+        </div>
+
+        </fieldset>
+        </form>
+    </div>
+    <div id="resultsDiv">
+        <span id="payment"></span>
+        <div id="schedule"></div>
+    </div>
+</body>
+</html>
